@@ -3,7 +3,7 @@
 %bcond_without	doc	# API documentation
 %bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module
 
 %define 	module	traitlets
 Summary:	A configuration system for Python applications
