@@ -49,9 +49,9 @@ BuildRequires:	python3-six
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with doc}
-BuildRequires:	python3-ipython_genutils
-BuildRequires:	python3-sphinx_rtd_theme
-BuildRequires:	sphinx-pdg-3
+BuildRequires:	python-ipython_genutils
+BuildRequires:	python-sphinx_rtd_theme
+BuildRequires:	sphinx-pdg-2
 %endif
 Requires:	python-modules >= 1:2.7
 BuildArch:	noarch
@@ -104,6 +104,7 @@ Dokumentacja API modułu traitlets.
 
 %if %{with tests}
 LC_ALL=C.UTF-8 \
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 %{__python} -m pytest traitlets
 %endif
 %endif
@@ -112,13 +113,14 @@ LC_ALL=C.UTF-8 \
 %py3_build
 
 %if %{with tests}
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 %{__python3} -m pytest traitlets
 %endif
 %endif
 
 %if %{with doc}
 %{__make} -C docs html \
-	SPHINXBUILD=sphinx-build-3
+	SPHINXBUILD=sphinx-build-2
 %endif
 
 %install
