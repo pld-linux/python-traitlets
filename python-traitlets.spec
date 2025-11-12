@@ -3,12 +3,13 @@
 %bcond_without	doc	# API documentation
 %bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_with	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module (built from python3-traitlets.spec)
 
 %define 	module	traitlets
 Summary:	A configuration system for Python applications
 Summary(pl.UTF-8):	System konfiguracji dla aplikacji w Pythonie
 Name:		python-%{module}
+# keep 4.x here for python2 support
 Version:	4.3.3
 Release:	8
 License:	BSD
